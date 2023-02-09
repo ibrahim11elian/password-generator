@@ -26,7 +26,13 @@ function PasswordGenerator({
       <StrengthStatus strength={strength} />
       <button
         className="btn-generate"
-        onClick={() => setPass(generatePassword(argu))}
+        onClick={() => {
+          if (strength === 0) {
+            alert("please select an option");
+          } else {
+            setPass(generatePassword(argu));
+          }
+        }}
       >
         <p>generate</p>
         <FontAwesomeIcon icon={faArrowRight} className="arrow" />
