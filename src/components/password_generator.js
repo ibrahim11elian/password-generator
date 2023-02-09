@@ -35,6 +35,7 @@ function PasswordGenerator({
   );
 }
 
+// the range slider
 function PasswordLength({ value, setValue }) {
   return (
     <section className="pass-length inside-container">
@@ -66,7 +67,11 @@ const options = [
 ];
 
 const levels = ["too weak !", "weak", "medium", "strong"];
+
+// password strength colors
 const colorLevels = ["#f74b4b", "#fb7a56", "#f8cb63", "#a3ffae"];
+
+// options that password will be made from
 function PasswordStrengthOptions({
   strength,
   setStrength,
@@ -93,8 +98,12 @@ function PasswordStrengthOptions({
   );
 }
 
+// check boxes
 const CheckInputs = ({ strength, setStrength, name, argu, setArguments }) => {
+  // check box state
   const [check, setCheck] = useState(false);
+
+  // for updating the password strength
   function changeStrength(increase, name) {
     let newArguments = { ...argu };
     if (increase) {
@@ -106,6 +115,7 @@ const CheckInputs = ({ strength, setStrength, name, argu, setArguments }) => {
     setArguments({ ...newArguments });
     setCheck(() => !check);
   }
+
   return (
     <>
       <input
@@ -122,6 +132,7 @@ const CheckInputs = ({ strength, setStrength, name, argu, setArguments }) => {
   );
 };
 
+// strength state component
 function StrengthStatus({ strength }) {
   return (
     <section className="s-section inside-container">

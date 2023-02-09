@@ -4,10 +4,14 @@ import PasswordField from "./components/password_field";
 import PasswordGenerator from "./components/password_generator";
 
 function App() {
+  // password strength state up to 4 (too weak, weak, medium, strong)
   const [strength, setStrength] = useState(0);
+  // password length
   const [value, setValue] = useState(8);
+  // password
   const [pass, setPass] = useState("");
 
+  // the object that will be passed to the generator function
   const [argu, setArguments] = useState({
     length: 8,
     IncludeUppercaseLetters: false,
@@ -21,6 +25,7 @@ function App() {
     newArguments.length = value;
     setArguments({ ...newArguments });
   }, [value]);
+
   return (
     <div className="app">
       <div className="container">
@@ -43,6 +48,7 @@ function App() {
 
 export default App;
 
+// generator function
 function generatePassword(options) {
   let chars = "";
   let password = "";

@@ -1,3 +1,4 @@
+/* variables */
 :root {
   --back-clr: #111016;
   --container-clr: #24232b;
@@ -68,6 +69,7 @@ body {
   margin-left: 10px;
 }
 
+/* container that hold the elements inside the password generator */
 .inside-container {
   width: 90%;
   margin: auto;
@@ -214,6 +216,7 @@ body {
   transform: rotate(45deg);
 }
 
+/* the strength section container */
 .s-section {
   margin: auto;
   margin-top: 2rem;
@@ -240,6 +243,7 @@ body {
   gap: 0.5rem;
 }
 
+/* the strength value (too weak, weak, medium, strong) */
 .strength .status .value {
   color: var(--normal);
   font-weight: 600;
@@ -287,6 +291,7 @@ body {
   -o-transition: 0s;
 }
 
+/* for disable the hover effects on touch screens */
 @media (hover: hover) {
   .copy-icon :hover {
     color: var(--normal);
@@ -299,6 +304,10 @@ body {
   }
 }
 
+/* ================================================ */
+/* responsive time ^-^ */
+
+/* very small devices */
 @media (max-width: 375.98px) {
   .pass-field {
     font-size: 1rem !important;
