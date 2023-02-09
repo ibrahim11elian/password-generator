@@ -1,0 +1,342 @@
+:root {
+  --back-clr: #111016;
+  --container-clr: #24232b;
+  --special-clr: #a3ffae;
+  --normal: #e8e7ed;
+  --title-clr: #858293;
+  --slider-bg-clr: #18171f;
+  --g-padding: 0 1rem;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "JetBrains Mono", "Roboto",
+    sans-serif;
+  background: var(--back-clr);
+  user-select: none;
+}
+
+.container {
+  width: 40%;
+  margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  height: 400px;
+}
+
+.title {
+  color: var(--title-clr);
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pass-field {
+  background: var(--container-clr);
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--g-padding);
+  font-size: 1.5rem;
+  color: #525159;
+}
+
+.copied {
+  margin-left: auto;
+  color: var(--special-clr);
+  text-transform: uppercase;
+  display: none;
+}
+
+.copy-icon {
+  color: var(--special-clr);
+  cursor: pointer;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  margin-left: 10px;
+}
+
+.inside-container {
+  width: 90%;
+  margin: auto;
+}
+
+.pass-generator {
+  margin-top: 1rem;
+  background: var(--container-clr);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.pass-length .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pass-length .head .name {
+  color: var(--normal);
+}
+
+.pass-length .head .char-value {
+  color: var(--special-clr);
+  font-size: 1.5rem;
+}
+
+#myRange {
+  -webkit-appearance: none; /*OverridedefaultCSSstyles*/
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  outline: none;
+  background: var(--slider-bg-clr);
+  margin-top: 1rem;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+#myRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background: var(--special-clr);
+  position: relative;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/* Mouse-over effects */
+#myRange::-webkit-slider-thumb:hover {
+  border: 2px solid var(--special-clr);
+  background: var(--slider-bg-clr);
+}
+
+#myRange::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: var(--special-clr);
+  cursor: pointer; /* Cursor on hover */
+}
+
+.options {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.option {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  position: relative;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.option .name {
+  margin: 0;
+  color: var(--normal);
+  cursor: pointer;
+}
+
+.check-box {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(10%);
+  height: 15px;
+  width: 15px;
+  border: 2px solid var(--normal);
+  -webkit-transform: translateY(10%);
+  -moz-transform: translateY(10%);
+  -ms-transform: translateY(10%);
+  -o-transform: translateY(10%);
+  cursor: pointer;
+}
+
+.option:hover input ~ .check-mark {
+  border-color: var(--special-clr);
+}
+
+/* When the checkbox is checked, add a blue background */
+.option input:checked ~ .check-mark {
+  background-color: var(--special-clr);
+  border-color: var(--special-clr);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.check-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .check-mark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.option .check-mark:after {
+  left: 5px;
+  top: 2px;
+  width: 3px;
+  height: 7px;
+  border: solid var(--slider-bg-clr);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.s-section {
+  margin: auto;
+  margin-top: 2rem;
+  padding: var(--g-padding);
+  background: var(--slider-bg-clr);
+  width: 85%;
+}
+
+.strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.strength .name {
+  text-transform: uppercase;
+  color: var(--title-clr);
+}
+
+.strength .status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strength .status .value {
+  color: var(--normal);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.strength .status .progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strength .status .progress span {
+  width: 8px;
+  height: 27px;
+  border: 2px solid var(--normal);
+}
+
+.btn-generate {
+  margin: auto;
+  margin-top: 2rem;
+  background: var(--special-clr);
+  width: 90%;
+  height: 3rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--slider-bg-clr);
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 2px solid var(--special-clr);
+  cursor: pointer;
+}
+
+.btn-generate p,
+.arrow {
+  transition: 0s;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  -o-transition: 0s;
+}
+
+@media (hover: hover) {
+  .copy-icon :hover {
+    color: var(--normal);
+  }
+
+  .btn-generate:hover {
+    background: transparent;
+    border-color: var(--special-clr);
+    color: var(--special-clr);
+  }
+}
+
+@media (max-width: 375.98px) {
+  .pass-field {
+    font-size: 1rem !important;
+  }
+  .copied {
+    font-size: 0.8rem !important;
+  }
+  .option .name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pass-field {
+    font-size: 1.2rem;
+  }
+  .strength .status .value {
+    font-size: 1rem;
+  }
+  .copied {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .container {
+    width: 85% !important;
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .container {
+    width: 65%;
+  }
+}
